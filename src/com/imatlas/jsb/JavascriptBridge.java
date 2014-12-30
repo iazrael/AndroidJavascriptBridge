@@ -119,6 +119,7 @@ public class JavascriptBridge {
          * 获取需要处理的命令
          * @return 命令数组
          */
+        @JavascriptInterface
         public String getCommands(){
             ArrayList<Command> temp = commandQueue;
             commandQueue = new ArrayList<Command>();
@@ -131,6 +132,7 @@ public class JavascriptBridge {
          * @param serial
          * @param jsonResult
          */
+         @JavascriptInterface
         public void setResult(long serial, String jsonResult){
             Command command = commandMap.remove(serial);
             if(command == null){
@@ -153,6 +155,7 @@ public class JavascriptBridge {
          * @param params
          * @return java方法执行的返回值
          */
+         @JavascriptInterface
         public Object require(String cmd, String params){
             Function function = javaMethodMap.get(cmd);
             if(function != null){
